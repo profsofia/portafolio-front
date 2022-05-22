@@ -1,0 +1,8 @@
+.hiden{
+ display:flex;
+}
+@media screen and (max-width: 769px) {
+  .hiden{
+    display: none;
+  }
+  }

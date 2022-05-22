@@ -1,0 +1,39 @@
+<div class="container mt-5">
+  <form [formGroup]="form" (ngSubmit)="submitButton($event)" class="container">
+    <div class="form-floating mb-1 ">
+      <input type="name" formControlName="name" placeholder="name"  class="form-control"
+      [ngClass]="{'is-invalid': nameData?.errors && nameData?.dirty , 'is-valid': !nameData?.errors && nameData?.dirty}"
+      >
+      <label for="floatingInput">Full Name</label>
+    </div>
+    <div *ngIf="nameData?.errors && nameData?.dirty">
+      <div *ngIf="nameData?.hasError('required')">
+        <p class="text-danger">Is Requiered</p>
+       </div>
+    </div>
+    <div class="form-floating mb-3">
+      <input type="email" class="form-control" formControlName="email" placeholder="name@example.com"
+      [ngClass]="{'is-invalid': emailData?.errors && emailData?.dirty , 'is-valid': !emailData?.errors && emailData?.dirty}" >
+      <label for="floatingInput">Email address</label>
+    </div>
+    <div *ngIf="emailData?.errors && emailData?.dirty">
+      <div *ngIf="emailData?.hasError('email')">
+        <p class="text-danger">Is not an email</p>
+       </div>
+    </div>
+    <div class="form-group">
+      <label class="form-label mt-4">Write me!</label>
+      <textarea class="form-control" formControlName="text" rows="3">
+        {{textData/80}}
+      </textarea>
+    </div>
+    <div *ngIf="textData?.hasError('errors')&& textData?.touched">
+      <div *ngIf="textData?.hasError('maxLength')">
+        <p class="text-danger">Te pasaste...</p>
+      </div>
+    </div>
+    <hr/>
+    <button type="submit" class="btn btn-dark btn-block">Submit</button>
+  </form>
+
+</div>
