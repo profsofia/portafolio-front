@@ -13,6 +13,7 @@ import { PracticesComponent } from './components/practices/practices.component';
 /////////PRIME NG//////////////
 import {MenubarModule} from 'primeng/menubar';
 import {TabMenuModule} from 'primeng/tabmenu';
+import { LoginComponent } from './components/login/login.component';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import {TabMenuModule} from 'primeng/tabmenu';
     ContactComponent,
     HomeComponent,
     Page404Component,
-    PracticesComponent
+    PracticesComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
