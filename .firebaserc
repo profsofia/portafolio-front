@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "portofiofullstack": {
+      "hosting": {
+        "portfoliofullstack": [
+          "portofiofullstack"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "portofiofullstack"
+  }
+}

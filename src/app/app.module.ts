@@ -9,11 +9,18 @@ import { ContactComponent } from './components/contact/contact.component';
 import { HomeComponent } from './components/home/home.component';
 import { Page404Component } from './components/page404/page404.component';
 import { PracticesComponent } from './components/practices/practices.component';
-
+///////////////////////////FireAuth///////////////////7
+import { AuthModule } from '@angular/fire/auth';
+import { AngularFireModule } from '@angular/fire/compat';
 /////////PRIME NG//////////////
 import {MenubarModule} from 'primeng/menubar';
 import {TabMenuModule} from 'primeng/tabmenu';
 import { LoginComponent } from './components/login/login.component';
+import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
+import { environment } from '../environments/environment';
+import { provideAuth,getAuth } from '@angular/fire/auth';
+import { provideStorage,getStorage } from '@angular/fire/storage';
+import { PagecrudComponent } from './components/pagecrud/pagecrud.component';
 
 
 @NgModule({
@@ -24,7 +31,8 @@ import { LoginComponent } from './components/login/login.component';
     HomeComponent,
     Page404Component,
     PracticesComponent,
-    LoginComponent
+    LoginComponent,
+    PagecrudComponent
   ],
   imports: [
     BrowserModule,
@@ -32,7 +40,12 @@ import { LoginComponent } from './components/login/login.component';
     ReactiveFormsModule,
     AppRoutingModule,
     MenubarModule,
-    TabMenuModule
+    TabMenuModule,
+    AuthModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig) ,
+    //provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideAuth(() => getAuth()),
+    provideStorage(() => getStorage())
   ],
   providers: [],
   bootstrap: [AppComponent]

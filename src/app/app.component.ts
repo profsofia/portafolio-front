@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Routes } from '@angular/router';
 import {MenuItem} from 'primeng/api';
+import { AuthfireService } from './services/authfire.service';
 
 @Component({
   selector: 'app-root',
@@ -12,7 +13,11 @@ export class AppComponent {
   routes: Routes[] =[];
   items: MenuItem[] =[];
 
+  constructor(private authMyServ: AuthfireService){}
+  userLogged=this.authMyServ.getCurrentUser();
+
     ngOnInit() {
+      this.getCurrentUser();
         this.items = [
             {label: 'Linkedin', icon: 'pi pi-fw pi-linkedin', url:'https://www.linkedin.com/in/sofiaschenone/'},
             {label: 'Home', icon: 'pi pi-fw pi-home', routerLink: ['/']},
@@ -22,4 +27,13 @@ export class AppComponent {
             {label: 'Loggin', icon: 'pi pi-sign-in', routerLink: ['/login']}
         ];
     }
+    getCurrentUser(){
+      this.authMyServ.getCurrentUser().subscribe(res=>{
+        console.log(res?.email);
+      });
+    }
+    logout(){
+      this.authMyServ.onLogout();
+    }
+
 }

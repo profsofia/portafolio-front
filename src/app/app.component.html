@@ -5,6 +5,13 @@
   [model]="items"
   [autoDisplay]="true">
   <img src="../assets/argentinaprograma.png"  width="150" alt="argentina programa">
+  <div class="" *ngIf="userLogged|async as user">
+    <a routerLink="/"
+    (click)="logout()"
+    >Logout
+  </a>
+    {{user.email}}
+  </div>
 </p-menubar>
 </div>
 <router-outlet></router-outlet>
