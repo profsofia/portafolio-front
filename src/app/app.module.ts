@@ -16,11 +16,12 @@ import { AngularFireModule } from '@angular/fire/compat';
 import {MenubarModule} from 'primeng/menubar';
 import {TabMenuModule} from 'primeng/tabmenu';
 import { LoginComponent } from './components/login/login.component';
-import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
+import { HttpClientModule } from '@angular/common/http';
 import { environment } from '../environments/environment';
 import { provideAuth,getAuth } from '@angular/fire/auth';
 import { provideStorage,getStorage } from '@angular/fire/storage';
-import { PagecrudComponent } from './components/pagecrud/pagecrud.component';
+import { CrudComponent } from './abml/crud/crud.component';
+
 
 
 @NgModule({
@@ -32,10 +33,11 @@ import { PagecrudComponent } from './components/pagecrud/pagecrud.component';
     Page404Component,
     PracticesComponent,
     LoginComponent,
-    PagecrudComponent
+    CrudComponent
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
     AppRoutingModule,
@@ -45,7 +47,7 @@ import { PagecrudComponent } from './components/pagecrud/pagecrud.component';
     AngularFireModule.initializeApp(environment.firebaseConfig) ,
     //provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
-    provideStorage(() => getStorage())
+    provideStorage(() => getStorage()),
   ],
   providers: [],
   bootstrap: [AppComponent]
