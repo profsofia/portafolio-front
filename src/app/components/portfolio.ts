@@ -1,5 +1,6 @@
 export class Portfolio {
   id: number;
+  imagen: string;
   nombre: string;
   titulo: string;
   skills: string;

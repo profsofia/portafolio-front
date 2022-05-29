@@ -9,6 +9,7 @@ import { ServicefullService } from 'src/app/services/servicefull.service';
 export class CrudComponent implements OnInit {
  portafolios: any[];
  portafolioback: any={
+   imagen: "",
    nombre: "",
    titulo:"",
    skills:"",
@@ -37,6 +38,7 @@ export class CrudComponent implements OnInit {
       .subscribe(()=> this.getAll());
     }
     this.portafolioback={
+      imagen: "",
       nombre: "",
       titulo:"",
       skills:"",

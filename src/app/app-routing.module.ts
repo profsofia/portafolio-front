@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { CardComponent } from './abml/card/card.component';
 import { CrudComponent } from './abml/crud/crud.component';
 import { AboutComponent } from './components/about/about.component';
 import { ContactComponent } from './components/contact/contact.component';
@@ -15,6 +16,7 @@ const routes: Routes = [
   {path: 'about', component: AboutComponent},
   {path: 'login', component: LoginComponent},
   {path: 'crud', component: CrudComponent},
+  {path: 'card', component: CardComponent},
   {path: '**', component: Page404Component}
 ];
 

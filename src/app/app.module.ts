@@ -21,6 +21,7 @@ import { environment } from '../environments/environment';
 import { provideAuth,getAuth } from '@angular/fire/auth';
 import { provideStorage,getStorage } from '@angular/fire/storage';
 import { CrudComponent } from './abml/crud/crud.component';
+import { CardComponent } from './abml/card/card.component';
 
 
 
@@ -33,7 +34,8 @@ import { CrudComponent } from './abml/crud/crud.component';
     Page404Component,
     PracticesComponent,
     LoginComponent,
-    CrudComponent
+    CrudComponent,
+    CardComponent
   ],
   imports: [
     BrowserModule,
