@@ -1,44 +1,94 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-6">
-      <h2>lista</h2>
+    <div class="col">
+      <h2 class="text-center">Lista de Portafolios</h2>
       <div *ngFor="let item of portafolios" class="card mb-3">
-        <div class="card-body">
-          <div class="d-flex justify-content-between">
-            <div class="fw-bold">{{ item.nombre }}</div>
-            <img [src]="item.imagen"/>
-            <button class="btn btn-danger" (click)="edit(item)" >editar</button>
-            <button class="btn btn-success" (click)="deleteDato(item)" >borrar</button>
-            <button class="btn btn-success" routerLink="/card">Ver detalle</button>
+        <div class="card" style="width: 18rem; border: none;">
+          <img class="card-img-top" [src]="item.imagenBanner" alt="Card" />
+          <div class="card-body">
+            <h5 class="card-title">{{ item.nombre }}</h5>
+            <p class="card-text">{{ item.descripcion }}</p>
+            <div class="card-footer">
+              <button
+                class="btn btn-block"
+                icon="pi pi-pencil"
+                pButton
+                type="button"
+                label="Editar"
+                (click)="edit(item)"
+              ></button>
+              <button
+                class="btn btn-block"
+                icon="pi pi-trash"
+                pButton
+                type="button"
+                label="Borrar"
+                (click)="deleteDato(item)"
+              ></button>
+              <button
+                class="btn btn-block"
+                icon="pi pi-eye"
+                pButton
+                type="button"
+                label="Ver"
+                routerLink="/edit"
+              ></button>
+            </div>
           </div>
         </div>
       </div>
     </div>
-    <div class="col-md-6">
-      <h3>{{portafolioback.id ? 'Editar' : 'Nuevo'}} portafolio</h3>
+    <div class="col">
+      <h3 class="text-center">
+        {{ portafolioback.id ? "Editar" : "Nuevo" }} portafolio
+      </h3>
       <form class="mt-5" (ngSubmit)="save()">
         <div class="mb-3 form-floating">
           <label for="nombre">Nombre: </label>
           <input
             id="nombre"
             type="text"
-            placeholder="Nombre"
             name="nombre"
             class="form-control"
             [(ngModel)]="portafolioback.nombre"
           />
-          <br/>
-          <label for="imagen">Subir imagen</label>
+          <label for="nombre">Descripción: </label>
           <input
-          type="text"
-          id="imagen"
-          name="imagen"
-          [(ngModel)]="portafolioback.imagen"
-          >
-          <br/>
-          <button type="submit" >subir</button>
+            id="descripcion"
+            type="text"
+            name="descripcion"
+            class="form-control"
+            [(ngModel)]="portafolioback.descripcion"
+          />
+          <br />
+          <label for="imagen">Subir imagen para el banner</label>
+          <input
+            class="form-control"
+            type="text"
+            id="imagenBanner"
+            name="imagenBanner"
+            [(ngModel)]="portafolioback.imagenBanner"
+          />
+          <label for="imagen">Subir imagen del perfil</label>
+          <input
+            class="form-control"
+            type="text"
+            id="imagenPerfil"
+            name="imagenPerfil"
+            [(ngModel)]="portafolioback.imagenPerfil"
+          />
+          <br />
+          <button
+            class="btn btn-block text-center my-2"
+            icon="pi pi-cloud-upload"
+            pButton
+            type="button"
+            label="Subir"
+          ></button>
         </div>
       </form>
     </div>
   </div>
 </div>
+<app-practices-crud></app-practices-crud>
+<app-skills></app-skills>

@@ -1,23 +1,25 @@
 <div class="container">
   <div class="row">
     <div class="col-sm-4">
-      <div class="row  px-5 py-5">
-        <h3>Full Stack Develop</h3>
-        <!--Tratando de obtener backend, intento 1000 fallido...-->
-        <b
-        *ngFor="let item of textoAbout"
-        >{{item.description}}
-        {{item.username}}
-
-      </b>
-
+      <div *ngFor="let item of textoAbout" class="row px-5 py-5">
+        <h3>{{ item.nombre }}</h3>
+        <p>
+          <b>
+            {{ item.descripcion }}
+          </b>
+        </p>
       </div>
     </div>
     <div class="col-sm-6">
       <div class="row">
-        <img src="../../../assets/github.png" class="img-fluid">
+        <img
+          src="https://res.cloudinary.com/sofiaschenone/image/upload/v1653965821/portfolio/fotoSofi_newpgd.jpg"
+          class="img-fluid"
+        />
       </div>
+      <a href="https://drive.google.com/file/d/1txOMP48lndlAqeLqm3mwnVA6yGS0MQDI/view?usp=sharing" class="btn btn-primary btn-block my-2"
+        ><i class="pi pi-download"> Descargar CV</i></a
+      >
     </div>
   </div>
 </div>
-

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ServicefullService } from 'src/app/services/servicefull.service';
 
 @Component({
   selector: 'app-about',
@@ -8,9 +9,11 @@ import { Component, OnInit } from '@angular/core';
 export class AboutComponent implements OnInit {
   textoAbout: any;
 
-  constructor() { }
+  constructor(private servciceDescrip : ServicefullService) { }
 
   ngOnInit(): void {
+    this.servciceDescrip.obtenerLista()
+    .subscribe(descripcion=>this.textoAbout = descripcion)
   }
 
 }

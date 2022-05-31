@@ -1,0 +1,41 @@
+<div class="container"><h2 class="text-center">Drop Skills</h2>
+  <div class="row">
+    <div
+      class="col-6"
+      cdkDropList
+      #lista1="cdkDropList"
+      [cdkDropListData]="softSkills"
+      [cdkDropListConnectedTo]="[lista2]"
+      (cdkDropListDropped)="drop($event)"
+    >
+      <div cdkDrag class="container" *ngFor="let n of softSkills">
+        <section>
+          <h3>{{n.skillSoft}}</h3>
+        <img [src]="n.imgSkillSoft" class="rounded-circle" style="width: 2.5em; height:2.5em;">
+        <div class="progress">
+          <div class="progress-bar bg-primary" role="progressbar" style="width: 65%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+        </div>
+        </section>
+      </div>
+    </div>
+    <div
+      class="col-6"
+      cdkDropList
+      #lista2="cdkDropList"
+      [cdkDropListData]="habilidades"
+      [cdkDropListConnectedTo]="[lista1]"
+      (cdkDropListDropped)="drop($event)"
+    >
+      <div cdkDrag class="container" *ngFor="let n2 of habilidades">
+        <section>
+          <h3>{{n2.skill}}</h3>
+        <img [src]="n2.imgSkill" class="rounded-circle" style="width: 2.5em; height:2.5em;">
+        <div class="progress">
+          <div class="progress-bar bg-primary" role="progressbar" style="width: 65%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+        </div>
+        </section>
+      </div>
+    </div>
+  </div>
+</div>
+

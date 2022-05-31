@@ -31,10 +31,10 @@ export class AppComponent {
         routerLink: ['/practices'],
       },
       { label: 'About', icon: 'pi pi-fw pi-user-plus', routerLink: ['/about'] },
-      { label: 'Contact', icon: 'pi pi-fw pi-send', routerLink: ['/contact'] },
-      { label: 'Loggin', icon: 'pi pi-sign-in', routerLink: ['/login'] },
-      { label: 'Nuevo', icon: 'pi pi-mas', routerLink: ['/nuevo'] },
-      {label: 'Lista', icon: 'pi pi-mas', routerLink: ['/crud'] }
+      //{ label: 'Contact', icon: 'pi pi-fw pi-send', routerLink: ['/contact'] },
+      //{ label: 'Loggin', icon: 'pi pi-sign-in', routerLink: ['/login'] },
+      //{label: 'Lista', icon: 'pi pi-mas', routerLink: ['/crud'] },
+      //{label: 'Edit', icon: 'pi pi-user-edit', routerLink: ['/edit'] }
     ];
   }
   getCurrentUser() {

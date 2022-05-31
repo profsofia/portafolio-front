@@ -4,14 +4,16 @@
   <p-menubar
   [model]="items"
   [autoDisplay]="true">
+    <a routerLink='/login' class="btn btn-primary"><i class="pi pi-sign-in"></i> Login</a>
   <img src="../assets/argentinaprograma.png"  width="150" alt="argentina programa">
   <div class="" *ngIf="userLogged|async as user">
-    <a routerLink="/"
+    <a class="btn btn-primary"
     (click)="logout()"
-    >Logout
+    ><i class="pi pi-sign-out"></i> Logout
   </a>
     {{user.email}}
   </div>
+
 </p-menubar>
 </div>
 <router-outlet></router-outlet>

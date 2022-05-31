@@ -19,18 +19,21 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  logout(){
+    this.myAuthFire.onLogout();
+  }
   onLogin(){
     const {email, password }= this.formLogin.value;
     this.myAuthFire.onLogin(email, password);
     //console.log('Form= ', this.formLogin.value);
     this.formLogin.reset();
+    this.rutes.navigate(['/crud']);
   }
  get Email(){
     return this.formLogin.get('email');
   }
   redirectTo(){
-  console.log('funcionando')
-  this.rutes.navigate(['pagecrud']);
+  this.rutes.navigate(['/crud']);
   }
 
 

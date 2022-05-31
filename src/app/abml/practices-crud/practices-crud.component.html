@@ -1,0 +1,68 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h2 class="text-center">Lista de Practicas</h2>
+      <div *ngFor="let item of practices" class="card mb-3">
+        <p-card [header]="item.practicaNombre" [subheader]="item.tecnologia" [style]="{width: '360px'}" styleClass="p-card-shadow">
+          <ng-template pTemplate="header">
+              <img alt="Card" [src]="item.imagenPractica">
+          </ng-template>
+          <button type="button" class="btn btn-link"><i class="pi pi-tags"></i> <a [href]="item.url"> <b>Go..</b></a></button>
+
+          <ng-template pTemplate="footer">
+              <p-button label="Editar" icon="pi pi-pencil" (click)="editPractice(item)" [style]="{'margin-left': '.5em'}"></p-button>
+              <p-button label="Borrar" icon="pi pi-trash" (click)="deletePractice(item)" styleClass="p-button-secondary" [style]="{'margin-left': '.5em'}"></p-button>
+          </ng-template>
+      </p-card>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <h3 class="text-center">
+        {{ practicesSave.id ? "Editar" : "Nuevo" }} practices
+      </h3>
+      <form class="mt-5" (ngSubmit)="savePractice()">
+        <div class="mb-3 form-floating">
+          <label for="practicaNombre">Nombre de la practica: </label>
+          <input
+            id="practicaNombre"
+            type="text"
+            name="practicaNombre"
+            class="form-control"
+            [(ngModel)]="practicesSave.practicaNombre"
+          />
+          <label for="tecnologia">Tecnologia: </label>
+          <input
+            id="tecnologia"
+            type="text"
+            name="tecnologia"
+            class="form-control"
+            [(ngModel)]="practicesSave.tecnologia"
+          />
+          <label for="imagenPractica">Imagen: </label>
+          <input
+            id="imagenPractica"
+            type="text"
+            name="imagenPractica"
+            class="form-control"
+            [(ngModel)]="practicesSave.imagenPractica"
+          />
+          <label for="url">url github: </label>
+          <input
+            id="url"
+            type="text"
+            name="url"
+            class="form-control"
+            [(ngModel)]="practicesSave.url"
+          />
+          <button
+            class="btn btn-block text-center my-2"
+            icon="pi pi-cloud-upload"
+            pButton
+            type="submit"
+            label="Subir"
+          ></button>
+        </div>
+      </form>
+    </div>
+  </div>

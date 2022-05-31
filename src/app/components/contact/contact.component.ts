@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { debounceTime } from 'rxjs';
+import { ContactService } from 'src/app/services/contact.service';
 
 
 @Component({
@@ -9,10 +10,15 @@ import { debounceTime } from 'rxjs';
   styleUrls: ['./contact.component.css']
 })
 export class ContactComponent implements OnInit {
-  form!:FormGroup;
+  datos: any ={}
+    nombre: "";
+    e_mail: "";
+    t_ext:"";
+  form:FormGroup;
 
   constructor(
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private contactServ : ContactService
   ) {
     this.buildForm();
   }
@@ -34,10 +40,9 @@ export class ContactComponent implements OnInit {
       console.log(value);
       });
   }
-  submitButton(event: Event){
-    event.preventDefault();
-    const value = this.form.value;
-    console.log(value);
+  submitButton(data: any){
+    this.contactServ.enviar(this.form)
+      .subscribe((envio)=> this.datos = envio);
   }
   get emailData(){
    return this.form.get('email');
@@ -48,6 +53,7 @@ export class ContactComponent implements OnInit {
    get textData() : any{
     return this.form.get('text');
    }
+
 
 
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Portfolio } from 'src/app/components/portfolio';
 import { ServicefullService } from 'src/app/services/servicefull.service';
 
 @Component({
@@ -7,13 +8,12 @@ import { ServicefullService } from 'src/app/services/servicefull.service';
   styleUrls: ['./crud.component.css']
 })
 export class CrudComponent implements OnInit {
- portafolios: any[];
+ portafolios: Portfolio[];
  portafolioback: any={
-   imagen: "",
-   nombre: "",
-   titulo:"",
-   skills:"",
-   proyectos:""
+   imagenBanner: "",
+   imagenPerfil: "",
+   nombre:"",
+   descripcion:""
  }
   constructor(
     private servicioApi: ServicefullService
@@ -38,11 +38,10 @@ export class CrudComponent implements OnInit {
       .subscribe(()=> this.getAll());
     }
     this.portafolioback={
-      imagen: "",
-      nombre: "",
-      titulo:"",
-      skills:"",
-      proyectos:""
+      imagenBanner: "",
+      imagenPerfil: "",
+      nombre:"",
+      descripcion:""
     }
   }
   edit(datos: any){
