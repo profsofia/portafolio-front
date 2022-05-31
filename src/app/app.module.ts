@@ -68,7 +68,7 @@ import { PracticesCrudComponent } from './abml/practices-crud/practices-crud.com
     TableModule,
     BrowserAnimationsModule,
     AuthModule,
-    AngularFireModule.initializeApp(environment.firebaseConfig) ,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
     //provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
     provideStorage(() => getStorage()),
