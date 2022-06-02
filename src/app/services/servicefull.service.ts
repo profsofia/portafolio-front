@@ -13,7 +13,7 @@ export class ServicefullService {
 
   //lista
   obtenerLista():Observable <Portfolio[]>{
-    return this.http.get<Portfolio[]>(`${this.apiPortafolio}/portafolio`);
+    return this.http.get<Portfolio[]>(`${this.apiPortafolio}`+'/portafolio');
   }
   editarPortfolio(id: number, portfolio: Portfolio):Observable <Object>{
     return this.http.put(`${this.apiPortafolio}/portafolio/${id}`, portfolio);
@@ -23,6 +23,6 @@ export class ServicefullService {
   }
   //guardar
   guardarPortafolio(portafolio: Portfolio):Observable <Object>{
-    return this.http.post(`${this.apiPortafolio}/portafolio`, portafolio);
+    return this.http.post(`${this.apiPortafolio}`+'/portafolio', portafolio);
   }
 }
