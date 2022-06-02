@@ -15,5 +15,6 @@ export const environment = {
     storageBucket: "portofiofullstack.appspot.com",
     messagingSenderId: "69953966698",
     appId: "1:69953966698:web:cc57fe6f8ebbec1230b013"
-  }
+  },
+  api: "https://portafolio-sofia-schenone.herokuapp.com/api"
 };
