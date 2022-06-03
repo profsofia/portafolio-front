@@ -23,6 +23,7 @@ import {ToastModule } from 'primeng/toast';
 import {ButtonModule } from 'primeng/button';
 import {CardModule} from 'primeng/card';
 import {TableModule} from 'primeng/table';
+import {DividerModule} from 'primeng/divider';
 
 /////////////////////////////////////////////////////
 import { LoginComponent } from './components/login/login.component';
@@ -60,6 +61,7 @@ import { PracticesCrudComponent } from './abml/practices-crud/practices-crud.com
     MenubarModule,
     TabMenuModule,
     DragDropModule,
+    DividerModule,
     ProgressBarModule,
     DynamicDialogModule,
     ToastModule,
