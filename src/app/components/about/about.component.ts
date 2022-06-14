@@ -15,13 +15,11 @@ import {
     trigger('openClose', [
       // ...
       state('open', style({
-        height: '200px',
         opacity: 1,
         backgroundColor: 'white',
         color: 'black'
       })),
       state('closed', style({
-        height: '100px',
         opacity: 0.8,
         backgroundColor: 'black',
         color: 'white'
