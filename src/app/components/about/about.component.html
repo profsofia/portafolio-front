@@ -1,7 +1,30 @@
 <div class="container mt-5">
   <div class="row">
     <div class="col-sm-4">
-      <div *ngFor="let item of textoAbout" class="row px-5 py-5">
+      <div
+        *ngFor="let item of textoAbout"
+        class="row px-5 py-5"
+        [@openClose]="isOpen ? 'open' : 'closed'"
+      >
+        <button
+          pButton
+          pRipple
+          type="button"
+          *ngIf="isOpen === true"
+          (click)="toggle()"
+          icon="pi pi-sun"
+          class="p-button-raised p-button-rounded p-button-info"
+        ></button>
+        <button
+          pButton
+          pRipple
+          type="button"
+          *ngIf="isOpen === false"
+          (click)="toggle()"
+          icon="pi pi-moon"
+          class="p-button-raised p-button-rounded p-button-secondary"
+        ></button>
+
         <h3>{{ item.nombre }}</h3>
         <p>
           <b>
@@ -9,18 +32,80 @@
           </b>
         </p>
       </div>
+      <div class="col-sm-4">
+        <div class="row">
+          <a href="https://www.youtube.com/channel/UCcSErMMrU9eYeT93L-87n-w">
+            <button
+              pButton
+              type="button"
+              label="youtube"
+              icon="pi pi-youtube"
+              iconPos="right"
+              class="p-button-text p-button-text"
+            ></button
+          ></a>
+          <a href="https://github.com/profsofia">
+            <button
+              pButton
+              type="button"
+              label="github"
+              icon="pi pi-github"
+              iconPos="right"
+              class="p-button-text p-button-text"
+            ></button>
+          </a>
+          <a href="https://www.linkedin.com/in/sofiaschenone/">
+            <button
+              pButton
+              type="button"
+              label="linkedin"
+              icon="pi pi-linkedin"
+              iconPos="right"
+              class="p-button-text p-button-text"
+            ></button>
+          </a>
+        </div>
+      </div>
     </div>
     <p-divider layout="vertical"></p-divider>
-    <div class="col-sm-6">
-      <div class="row">
+    <div class="col-sm-4">
+      <div class="card">
         <img
-          src="https://res.cloudinary.com/sofiaschenone/image/upload/v1653965821/portfolio/fotoSofi_newpgd.jpg"
-          class="img-fluid"
+          class="card-image"
+          src="https://res.cloudinary.com/sofiaschenone/image/upload/v1655234243/portfolio/Dise%C3%B1o_sin_t%C3%ADtulo_5_yx0r5i.png"
         />
       </div>
-      <a href="https://drive.google.com/file/d/1txOMP48lndlAqeLqm3mwnVA6yGS0MQDI/view?usp=sharing" class="btn btn-primary btn-block my-2"
+      <a
+        href="https://drive.google.com/file/d/1jldOMW2pfSWwZoI4DkoGpbui7D13clb4/view?usp=sharing"
+        class="btn btn-primary btn-block my-2"
         ><i class="pi pi-download"> Descargar CV</i></a
       >
     </div>
   </div>
 </div>
+<button
+  pButton
+  pRipple
+  type="button"
+  *ngIf="isOpen === true"
+  (click)="toggle()"
+  icon="pi pi-sun"
+  class="p-button-raised p-button-rounded p-button-info"
+></button>
+<button
+  pButton
+  pRipple
+  type="button"
+  *ngIf="isOpen === false"
+  (click)="toggle()"
+  icon="pi pi-moon"
+  class="p-button-raised p-button-rounded p-button-secondary"
+></button>
+<!--
+<div [@openClose]="isOpen ? 'open' : 'closed'" class="open-close-container">
+  <p>
+    The box is now {{ isOpen ? "LigthMode" : "DarkMode" }}!
+    {{ 2 + 5 }}
+  </p>
+</div>
+-->
